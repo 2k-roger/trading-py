@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "trading-py"
+version = "0.1.0"
+description = "Quantitative trading backtesting system with Binance futures leverage support"
+requires-python = ">=3.10"
+dependencies = [
+    "ccxt>=4.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

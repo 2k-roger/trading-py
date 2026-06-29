@@ -1,0 +1,33 @@
+# Default backtest configuration
+# All values can be overridden at runtime via ConfigLoader.load(overrides={...})
+
+# Data
+exchange: binance
+symbol: ETH/USDT
+timeframe: 1h
+start_date: 2026-04-01   # null = fetch all available
+end_date: 2026-06-29
+
+# Capital & leverage (USDT-margined perpetual futures)
+initial_capital: 1000.0     # 10 USDT
+leverage: 15              # 15x (optimized: high enough for return, low enough to avoid liquidation)
+margin_mode: isolated     # isolated | cross
+maintenance_margin_pct: 0.005  # 0.5% for ETH/USDT
+
+# Costs
+commission_pct: 0.0004    # 0.04% taker fee
+slippage_pct: 0.0001      # 0.01% slippage
+
+# Risk management
+position_sizing: fixed_risk   # fixed_risk | fixed_units | percent_equity
+risk_per_trade_pct: 0.01      # 1% of capital risked per trade
+
+# Strategy
+strategy_name: ema_crossover_v2
+strategy_params:
+  ema_short: 21
+  ema_long: 55
+  ema_trend: 100
+  atr_period: 14
+  atr_mult: 0.25
+  tp_mult: 0.0              # no take-profit; trailing stop only
