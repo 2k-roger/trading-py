@@ -4,12 +4,12 @@
 # Data
 exchange: binance
 symbol: ETH/USDT
-timeframe: 1h
-start_date: 2026-04-01   # null = fetch all available
-end_date: 2026-06-29
+timeframe: 1h # 1m, 3m, 5m, 15m, 30m
+start_date: 2026-06-24   # null = fetch all available
+end_date: 2026-07-01
 
 # Capital & leverage (USDT-margined perpetual futures)
-initial_capital: 1000.0     # 10 USDT
+initial_capital: 100.0     # 10 USDT
 leverage: 15              # 15x (optimized: high enough for return, low enough to avoid liquidation)
 margin_mode: isolated     # isolated | cross
 maintenance_margin_pct: 0.005  # 0.5% for ETH/USDT
@@ -23,6 +23,8 @@ position_sizing: fixed_risk   # fixed_risk | fixed_units | percent_equity
 risk_per_trade_pct: 0.01      # 1% of capital risked per trade
 
 # Strategy
+# ema_crossover_v2
+# mean_rev_15m
 strategy_name: ema_crossover_v2
 strategy_params:
   ema_short: 21
